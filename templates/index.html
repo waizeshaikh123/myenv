@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Django</title>
+</head>
+
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">S No</th>
+                <th scope="col">name</th>
+                <th scope="col">age</th>
+                <th scope="col">voted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for people in peoples %}
+
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{people.name}}</td>
+                <td>{{people.age}}</td>
+                <td {% if people.age < 18  %} class="bg-danger"  {%endif%}> 
+                    {%if people.age >= 18  %}
+                    👍
+                    {%else%}
+                    👎
+                    {%endif%}
+                </td>
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
