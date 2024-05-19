@@ -11,4 +11,9 @@ def home(request):
         {'name' : 'danish', 'age': 24},
         {'name' : 'neeraj', 'age': 17}
     ]
+    
+    # vegetables = [
+    #     'Tomato','cocumber','potato','onion'
+    # ]
+    
     return render( request , "index.html", context= {'peoples' : peoples})
